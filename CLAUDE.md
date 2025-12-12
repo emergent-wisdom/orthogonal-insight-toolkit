@@ -46,7 +46,7 @@ Default to 3 if they don't specify.
 
 ### Step 1: Generate Random Seeds
 ```bash
-python3 insight_mining/seed.py -n [NUMBER_OF_WORLDS]
+python3 -c "import random; words=[w.strip() for w in open('/usr/share/dict/words') if w.strip().islower() and 4<=len(w.strip())<=12 and \"'\" not in w]; print('\n'.join(random.sample(words, [NUMBER_OF_WORLDS])))"
 ```
 Generate one seed per world. Do NOT let the user pick seeds - randomness is essential.
 
@@ -114,7 +114,7 @@ User: "How can we reduce loneliness in cities?"
 Claude: "How many parallel worlds do you want to explore? (1-5 recommended)"
 User: "3"
 
-1. Generate 3 seeds: `python3 insight_mining/seed.py -n 3` → "porous", "mirrored", "buoyant"
+1. Run the bash command from Step 1 → "porous", "mirrored", "buoyant"
 2. Spawn 3 World Builder agents in parallel (one per seed)
 3. Spawn 3 Solver agents in parallel (one per world)
 4. Spawn 3 Extractor agents in parallel (one per solution)

@@ -21,44 +21,16 @@ The Orthogonal Insight Protocol escapes "median" AI answers by:
    claude
    ```
 
-2. Run the protocol:
+2. Describe your problem:
    ```
-   /simulate How can we reduce loneliness in cities?
-   ```
-
-3. Or manually:
-   ```
-   Generate a seed and run the Orthogonal Insight Protocol on "voter turnout"
+   How can we reduce loneliness in cities?
    ```
 
 Claude Code will spawn separate agents for each phase (world builder, solver, extractor) to ensure blind operation.
 
-## Quick Start (Python API)
-
-```bash
-pip install orthogonal-insight[api]
-export ANTHROPIC_API_KEY=your-key
-
-# Generate a seed
-oip-seed
-
-# Run full protocol
-oip-run "How can we reduce antibiotic resistance?"
-```
-
 ## Installation
 
-### For Claude Code (recommended)
 Just clone and open - the CLAUDE.md file tells Claude how to run the protocol.
-
-### As Python package
-```bash
-# Basic (seed generation only)
-pip install orthogonal-insight
-
-# With API support (full pipeline)
-pip install orthogonal-insight[api]
-```
 
 ## How It Works
 
@@ -78,18 +50,6 @@ Each phase uses a **separate agent** with no shared context:
 - Extractor knows only the solution (not the experiment)
 
 This prevents contamination. The blind architecture forces genuine divergence.
-
-## Files
-
-| File | Purpose |
-|------|---------|
-| `CLAUDE.md` | Instructions for Claude Code |
-| `.claude/commands/simulate.md` | Slash command for full protocol |
-| `insight_mining/seed.py` | Random seed generator (235k words) |
-| `insight_mining/run.py` | API-based orchestrator |
-| `insight_mining/prompts.py` | Prompt templates |
-| `AGENT_PROMPTS.md` | Manual copy-paste prompts |
-| `EXAMPLES.md` | Three worked examples |
 
 ## Examples
 
